@@ -1,0 +1,37 @@
+Postgres is the free to use opensource DBS system which is vastly superior to Oracle, MS SQL Server and mySQL for reasons.
+
+It is easy to use on Linux and easy enough on windows if you mess around enough.
+
+I messed around a bunch till I figured it out on windows:
+
+The first and foremost step is to access the psql service as postgres or the superuser. On this pc the password for postgres is sql.
+
+You don't really need a password on linux, just do sudo -su postgres and you become the postgres user.
+
+Here you need to write this code into powershell:
+
+psql -U postgres -h localhost
+It'll prompt for a login. There is a way to do this in one line or to eliminate the password requirement (by messing with the md5 security setting in a file in psql).
+
+Once you enter psql as postgres create a database for yourself and kaBLAM you're done!
+
+create database ariel with owner postgres;
+
+This creates a database named ariel where you can store tables and the owner is postgres.
+
+Unfortunately, postgres doesn't recognize me as a user for some reason. I'm not really sure why so I named the user postgres which it does recognize.
+
+
+Now, enter that database
+
+psql -d ariel -U postgres -W -h localhost
+
+#Terms:
+#psql is the way to use postgres
+# -d is a flag for database. After that write the name of the database.
+# -U is a flag for user. After that write the name of the user.
+# -W is a flag for prompt for a password. It will prompt you for a password.
+# h is a flag for hosting. You need to host a server in order to access a
+# database. The host server in this case is localhost, or your personal pc.
+
+Once you enter that you'll be in the database called ariel. Again the password is sql.

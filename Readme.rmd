@@ -1,0 +1,4 @@
+Requirements:
+
+npm i express pg //download express & pg
+npm install --save-dev nodemon  //easy reload-ability with nodemon
